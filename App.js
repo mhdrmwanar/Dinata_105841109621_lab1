@@ -1,24 +1,21 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
+import ButtonComponent from  './component/buttons/button';
 
 const App = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to MyApp</Text>
       <Image
-        source={require('./assets/WhatsApp21.png')}
+        source={require('./assets/WhatsApp23.png')}
         style={styles.logo}
       />
       <Text style={styles.subtitle}>
-      Selamat datang! Kami sangat senang dengan kehadiranmu saat ini.
+      "Kami percaya pada potensi Anda untuk berkembang, Jangan ragu untuk bertanya dan belajar hal baru, Kami selalu siap membantu Anda mencapai kesuksesan."
       </Text>
       <View style={styles.buttonContainer}>
-        <View style={[styles.button, { backgroundColor: 'red' }]}>
-          <Text style={styles.buttonText}>Login</Text>
-        </View>
-        <View style={[styles.button, { backgroundColor: 'blue' }]}>
-          <Text style={styles.buttonText}>Register</Text>
-        </View>
+        <ButtonComponent title="Sign In" color="blue"/>
+        <ButtonComponent title="Sign Up" color="orange"/>
       </View>
     </View>
   );
