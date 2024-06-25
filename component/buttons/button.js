@@ -1,31 +1,21 @@
+import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-const ButtonComponent = ({ title, color, onPress }) => {
+const ButtonComponent = ({ title, color}) => {
   return (
-    <TouchableOpacity 
-      style={[styles.button, { backgroundColor: color }]} 
-      onPress={onPress}
-    >
-      <Text style={styles.buttonText}>{title}</Text>
-    </TouchableOpacity>
-  );
-};
-
-const styles = StyleSheet.create({
-  button: {
-    paddingVertical: 15,
-    paddingHorizontal: 30,
-    borderRadius: 5,
-    marginHorizontal: 10,
-    allignItems: 'center',
-    justifyContent: 'center',
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 16,
-    textAlign: 'bold',
-  },
-});
-
+<View style={{ marginHorizontal: 10 }}>
+            <Text style={{
+              width: 100,
+              height: 50,
+              color: 'white',
+              backgroundColor: color,
+              textAlign: 'center',
+              lineHeight: 50,
+              fontSize: 20,
+              borderRadius: 10,
+            }}>{title}</Text>
+          </View>
+        )
+    }
+  
 export default ButtonComponent;
