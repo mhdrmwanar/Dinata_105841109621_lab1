@@ -1,35 +1,23 @@
-import { Text, View, Image, TextInput } from 'react-native'
-import React from 'react'
+import { useFonts } from "expo-font";
+import { Text, View } from "react-native"; //usefonts
 
-const App = () => {
-  const Inputan = ({ nama, color })=>{
-    return(
-      <TextInput
-      placeholder={`Masukan ${nama}`}
-      style ={{
-        borderWidth: 1,
-        borderColor: 'green',
-        borderRadius: 10,
-        width: 300,
-        height: 50,
-        marginVertical: 10,
-        padding: 10,
-        backgroundColor: 'white',
-        color:color,
-      }}
-      />
-    )
-  }
+export default function App() {
+  const [dapatFont] = useFonts({
+    'MetroBlack': require('./assets/fonts/Metropolis-Black.otf'),
+    'MetroBold': require('./assets/fonts/Metropolis-Bold.otf'),
+    'MetroLight': require('./assets/fonts/Metropolis-Light.otf'),
+    'MetroMedium': require('./assets/fonts/Metropolis-Medium.otf'),
+    'MetroSemiBold': require('./assets/fonts/Metropolis-SemiBold.otf')
+  });
+  if (!dapatFont) return <Text>Font tidak ditemukan ...</Text>
   return (
-    <View style = {{
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-    }}>
-      <Inputan nama= "Email" color = "blue"/>
-      <Inputan nama= "Username" color = "blue"/>
-      <Inputan nama= "Password" color = "blue"/>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text style={{ fontFamily: 'MetroBlack'}}>Muh Darmawan Aryadinata R</Text>
+      <Text style={{ fontFamily: 'MetroBold'}}>Muh Darmawan Aryadinata R</Text>
+      <Text style={{ fontFamily: 'MetroLight'}}>Muh Darmawan Aryadinata R</Text>
+      <Text style={{ fontFamily: 'MetroMedium'}}>Muh Darmawan Aryadinata R</Text>
+      <Text style={{ fontFamily: 'MetroSemiBold'}}>Muh Darmawan Aryadinata R</Text>
+      <Text>Font Biasa</Text>
     </View>
-  )
-}
-export default App;
+  );
+};
