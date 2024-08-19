@@ -8,7 +8,7 @@ import SocialLogin from './component/Social/SocialLogin';
 
 const Stack = createNativeStackNavigator();
 
-const SignUpScreen = ({ navigation }) => {
+const SignUp = ({ navigation }) => {
   const handleSignUp = () => {
     // Logika untuk signup di sini
     navigation.navigate('Login');
@@ -38,14 +38,32 @@ const SignUpScreen = ({ navigation }) => {
   );
 };
 
-const LoginScreen = () => {
+const Login = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Login</Text>
       <Inputan placeholder="Email" />
       <Inputan placeholder="Password" secureTextEntry={true} />
+      
+      
+      <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
+        <Text style={styles.forgotPasswordText}>Forgot your password?</Text>
+      </TouchableOpacity>
+
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>LOGIN</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const ForgotPassword = () => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Forgot Password</Text>
+      <Inputan placeholder="Email" />
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>SEND</Text>
       </TouchableOpacity>
     </View>
   );
@@ -55,8 +73,9 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="SignUp">
-        <Stack.Screen name="SignUp" component={SignUpScreen} />
-        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="SignUp" component={SignUp} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -87,8 +106,13 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     marginTop: 200,
   },
+  forgotPasswordText: {
+    color: 'red',
+    marginTop: 30,
+    fontSize: 14,
+  },
   button: {
-    backgroundColor: 'blue',
+    backgroundColor: 'red',
     borderRadius: 10,
     width: 300,
     height: 50,
